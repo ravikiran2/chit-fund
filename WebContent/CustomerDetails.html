@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+<style>
+.txtdiv{height:100px;width:1275px;margin-left:-67px;margin-top:-15px}
+.strokesdiv{height:400px;width:1275px;margin-top:1px;margin-left:-67px}
+.stimage{height:230px;width:240px;margin-top:6px;margin-left:10px; }
+.sttxt{height:100px;width:400px;margin-top:20px;float:right}
+.footer{position:fixed;height:88px;width:1275px;bottom:0;margin-left:2px}
+.footertxt{height:90px;width:700px;float:left}
+.sticons1{height:80px;width:400px; float:left;margin-top:25px;}
+.sticons2{height:80px;width:400px;float:right; margin-top:-200px}
+.stimage {
+		  position: relative;
+         -webkit-animation: mymove 3s;  /* Safari 4.0 - 8.0 */
+         -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+         animation: mymove 2s;
+         animation-fill-mode: forwards;
+		  animation-delay: 0.4s;
+         }
+
+        /* Safari 4.0 - 8.0 */
+        @-webkit-keyframes mymove {
+        from {left: 0px;}
+        to {left: 495px;}
+        }
+
+       @keyframes mymove {
+       from {left: 0px;}
+       to {left: 495px;}
+       }
+	   
+.sttxt {
+		  position: relative;
+         -webkit-animation: mymove 3s;  /* Safari 4.0 - 8.0 */
+         -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+         animation: move 2s;
+         animation-fill-mode: forwards;
+		 animation-delay: 0.4s;
+         }
+
+        /* Safari 4.0 - 8.0 */
+        @-webkit-keyframes move {
+        from {right: 0px;}
+        to {right: 445px;}
+        }
+
+       @keyframes move {
+       from {right: 0px;}
+       to {right: 445px;}
+       }	
+input{border:1px solid gray;background-color:#D5DCD7;width:220px;height:25px;border-radius: 22px;font-size: 15px;color: black;padding-left: 10px;height:30px}
+body{background-image: url('addCustomer.jpg');background-repeat: no-repeat;background-size: cover}
+form{color: white;margin-left: 20px}
+.sub:hover{background-color: #7AB790;transition:0.5s}
+
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-default" style="background-color:white">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="TSC.html"><img src="TSClogonav.png" alt="LOGO"style="height:90px;width:400px;margin-top:-10px"></a>
+    </div>
+    <ul class="nav navbar-nav" style="float:right;margin-top:50px">
+      <li><a href="TSC.html" style= "color:#E67E22; font-size:16px">Home</a></li>
+      <li><a href="#" style= "color:#E67E22; font-size:16px">Benifits</a></li>
+      <li><a href="#" style= "color:#E67E22; font-size:16px">Schemes</a></li>
+      <li><a href="#" style= "color:#E67E22; font-size:16px">Contact Us</a></li>
+        </ul>
+  </div>
+</nav>
+
+<form action="CustomerDetailsS">
+
+	CREATE ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp <input type="text" name="customerid">
+	<br>
+	<br>
+	FIRST NAME  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp<input type="text" name="firstname">
+	<br>
+	<br>
+	LAST NAME &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp<input type="text" name="lastname">
+	<br>
+	<br>
+	AGE &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp<input type="number" name="age">
+	<br>
+	<br>
+	GENDER &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp<input type="text" name="gender">
+	<br>
+	<br>
+	CONTACT NUMBER:&nbsp&nbsp<input type="number" name="contactnumber">
+	<br>
+	<br>
+	MAIL ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: &nbsp&nbsp&nbsp<input type="text" name="mailid">
+	<br>
+	<br>
+	ADDRESS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp<input type="text" name="address">
+	<br>
+	<br>
+	SCHEME TYPE &nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp<input type="text" name="schemetype">
+	<br>
+	<br>
+	
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input class="sub" type="submit" style="height: 40px;font-weight: bold;color: black" value="PROCEED">
+</form>
+
+
+
+
+</body>
+</html>
