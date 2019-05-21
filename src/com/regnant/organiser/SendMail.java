@@ -11,9 +11,16 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SendMail {
+public class SendMail extends Thread {
+	String tomail;
+	SendMail(String tomail){
+		this.tomail= tomail;
+	}
+	public void run() {
+		Mailsend();
+	}
 
-	public void Mailsend(String tomail) {
+	public void Mailsend() {
 
 		final String senderEmail = "thesmartchits@gmail.com";
 		final String password = "qwerty@123";

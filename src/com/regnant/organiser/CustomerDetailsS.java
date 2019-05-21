@@ -32,6 +32,7 @@ public class CustomerDetailsS extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		long startTime=System.currentTimeMillis();
 		String customerID = request.getParameter("customerid");
 		String customerFirstName = request.getParameter("firstname");
 		String customerLastName = request.getParameter("lastname");
@@ -56,9 +57,10 @@ public class CustomerDetailsS extends HttpServlet {
 		int noOFCustomers = DBCRUDOperations.insertCustomers(c);
 		System.out.println("number of customers added : " + noOFCustomers);
 		if (noOFCustomers == 1) {
-			SendMail sm = new SendMail();
+			SendMail sm = new SendMail(customerMailId);
 			sm.setname(c.lastname);
-			sm.Mailsend(customerMailId);
+			sm.start();
+			//sm.Mailsend(customerMailId);
 			if (customerSchemeType.equals("A")) {
 				request.getRequestDispatcher("AddPeopleToSchemeA.html").forward(request, response);
 			} else if (customerSchemeType.equals("B")) {
@@ -66,6 +68,9 @@ public class CustomerDetailsS extends HttpServlet {
 			} else if (customerSchemeType.equals("C")) {
 				request.getRequestDispatcher("AddPeopleToSchemeC.html").forward(request, response);
 			}
+			long endTime= System.currentTimeMillis();
+			long totalTime= endTime-startTime;
+			System.out.println("total time"+totalTime);
 		}
 		else{
 			request.getRequestDispatcher("CustomerDetails.html").forward(request, response);

@@ -30,8 +30,7 @@ public class RetriveSchemeAServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("wertyuio");
-		List<SchemeBean> li = DBCRUDOperations.getSchemeATable();
+		List<SchemeBean> li = DBCRUDOperations.getSchemeTable();
 		request.setAttribute("SchemeA", li);
 		request.getRequestDispatcher("retrieveSchemeA.jsp").forward(request, response);
 

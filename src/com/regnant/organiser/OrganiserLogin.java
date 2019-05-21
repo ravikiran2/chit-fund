@@ -44,21 +44,19 @@ public class OrganiserLogin extends HttpServlet {
 
 		boolean b = DBCRUDOperations.checkOrganiser(o);
 
-if (b) {
-if (organiserscheme.equals("A")) {
+		if (b) {
+			if (organiserscheme.equals("A")) {
 
-request.getRequestDispatcher("OperationsOrganiserA.html").forward(request, response);
-} else if (organiserscheme.equals("B")) {
-request.getRequestDispatcher("OperationsOrganiserB.html").forward(request, response);
+				request.getRequestDispatcher("OperationsOrganiserA.html").forward(request, response);
+			} else if (organiserscheme.equals("B")) {
+				request.getRequestDispatcher("OperationsOrganiserB.html").forward(request, response);
 
-} else if (organiserscheme.equals("C")) {
-request.getRequestDispatcher("OperationsOrganiserC.html").forward(request, response);
-}
-} else {
-request.getRequestDispatcher("OrganiserLogin.html").forward(request, response);
-}
-
-
+			} else if (organiserscheme.equals("C")) {
+				request.getRequestDispatcher("OperationsOrganiserC.html").forward(request, response);
+			}
+		} else {
+			request.getRequestDispatcher("OrganiserLogin.html").forward(request, response);
+		}
 
 	}
 

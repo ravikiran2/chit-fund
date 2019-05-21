@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.Statement;
 import com.regnant.admin.OrganiserBean;
 
 public class DBCRUDOperations {
@@ -179,7 +180,7 @@ public class DBCRUDOperations {
 
 	public static List<SchemeBean> getSchemeATable() {
 		Connection connection = DBConnection.getDBConnection();
-		List<SchemeBean> rows = new ArrayList<>();
+		List<SchemeBean> rows = new ArrayList<SchemeBean>();
 		try {
 			String selectQuery = "select * from scheme_a";
 			PreparedStatement psmt = connection.prepareStatement(selectQuery);
@@ -207,13 +208,13 @@ public class DBCRUDOperations {
 		return rows;
 	}
 
-	public static void main(String[] args) {
-
-		List<SchemeBean> test = DBCRUDOperations.getSchemeATable();
-		for (SchemeBean res : test) {
-			System.out.println(res.getId() + "\t" + res.getName());
-		}
-	}
+//	public static void main(String[] args) {
+//
+//		List<SchemeBean> test = DBCRUDOperations.getSchemeATable();
+//		for (SchemeBean res : test) {
+//			System.out.println(res.getId() + "\t" + res.getName());
+//		}
+//	}
 
 	public static boolean checkOrganiser(OrganiserBean o) {
 
@@ -235,5 +236,44 @@ public class DBCRUDOperations {
 		return false;
 
 	}
+	
 
-}
+	public static List<SchemeBean> getSchemeTable() {
+		Connection connection = DBConnection.getDBConnection();
+		List<SchemeBean> rows = new ArrayList<SchemeBean>();
+	java.sql.Statement st = null;
+	    try
+	    {
+	    	   Connection conn= DBConnection.getDBConnection();
+	    	   st=conn.createStatement(); 
+
+	      String query = "SELECT * FROM the_smart_chits.scheme_a";
+	   
+	    
+	      ResultSet rs = st.executeQuery(query);
+	      
+	      while (rs.next())
+	      {
+	        int id = rs.getInt("CustomerId");
+	        String Name = rs.getString("CustomerName");
+	        String Scheme = rs.getString("SchemeType");
+	        String paid = rs.getString("monthsPaid");
+	        String pending = rs.getString("monthsPending");
+	        String status = rs.getString("Status");
+	        String password=rs.getString("password");
+	        
+	        // print the results
+	        System.out.format("%s, %s, %s, %s, %s, %s\n", id, Name, Scheme, paid, pending, status,password);
+	      }
+	      st.close();
+	    }
+	    catch (Exception e)
+	    {
+	      System.err.println("Got an exception! ");
+	      System.err.println(e.getMessage());
+	    }
+		return rows;
+	  }
+	}
+
+

@@ -53,6 +53,7 @@ body{background-color: #D4D6D7}
 <th ><b>&nbsp Months to be paid &nbsp</b></th>
 <th ><b>&nbsp Months pending &nbsp</b></th>
 <th ><b>&nbsp Status &nbsp</b></th>
+<th ><b>&nbsp password &nbsp</b></th>
 
 
 </tr>
@@ -68,6 +69,7 @@ for (SchemeBean s : sl) {
 <td><%=s.getMonthsPaid() %></td>
 <td><%=s.getMonthsPending() %></td>
 <td><%=s.getStatus() %></td>
+<td><%=s.getPassword()%></td>
 </tr>
 <%
 }
