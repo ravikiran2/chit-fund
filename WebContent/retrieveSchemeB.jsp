@@ -46,10 +46,10 @@ body{background-color: #D4D6D7}
  color:#E67E22;font-weight:bold; width:80px; border-radius: 20px;height"
 			type="submit" value="logout"></form>
  
-<h2 style="margin-left:680px">Your Status</h2>
+<h2 style="margin-left:630px">Customers in SCHEME-B</h2>
 <br><br>
 
-<table cellspacing="10">
+<table>
 
 <tr>
 <th ><b>&nbsp Id &nbsp</b></th>
@@ -64,7 +64,7 @@ body{background-color: #D4D6D7}
 </tr>
 <%
 //List<SchemeBean> li = DBCRUDOperations.getSchemeTable();
- List<SchemeBean> sl = (List<SchemeBean>) request.getAttribute("SchemeA"); 
+ List<SchemeBean> sl = (List<SchemeBean>) request.getAttribute("SchemeB"); 
 for (SchemeBean s : sl) {
 %>
 <tr>

@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.Statement;
 import com.regnant.admin.OrganiserBean;
 
 public class DBCRUDOperations {
@@ -109,7 +109,6 @@ public class DBCRUDOperations {
 			noOfRowsInserted = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return noOfRowsInserted;
@@ -128,7 +127,6 @@ public class DBCRUDOperations {
 			noOfRowsUpdated = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -149,7 +147,6 @@ public class DBCRUDOperations {
 			noOfRowsUpdated = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -178,35 +175,35 @@ public class DBCRUDOperations {
 
 	}
 
-	public static List<SchemeBean> getSchemeATable() {
-		Connection connection = DBConnection.getDBConnection();
-		List<SchemeBean> rows = new ArrayList<SchemeBean>();
-		try {
-			String selectQuery = "select * from scheme_a";
-			PreparedStatement psmt = connection.prepareStatement(selectQuery);
-			ResultSet rs = psmt.executeQuery();
-			// System.out.println("qeqwertyu");
-			while (rs.next()) {
-				// System.out.println(rs.getInt(1));
-				SchemeBean b = new SchemeBean();
-				b.setId(rs.getInt(1));
-				b.setName(rs.getString(2));
-				b.setSchemeType(rs.getString(3));
-				b.setMonthsPaid(rs.getString(4));
-				b.setMonthsPending(rs.getString(5));
-				b.setStatus(rs.getString(6));
-				b.setPassword(rs.getString(7));
-				rows.add(b);
-				// System.out.println(b.status + "%%%%%%%");
-			}
-
-			connection.close();
-		} catch (SQLException e) {
-			System.out.println("sql exception in retrive");
-			e.printStackTrace();
-		}
-		return rows;
-	}
+//	public static List<SchemeBean> getSchemeATable() {
+//		Connection connection = DBConnection.getDBConnection();
+//		List<SchemeBean> rows = new ArrayList<SchemeBean>();
+//		try {
+//			String selectQuery = "select * from the_smart_chits.scheme_a";
+//			PreparedStatement psmt = connection.prepareStatement(selectQuery);
+//			ResultSet rs = psmt.executeQuery();
+//			// System.out.println("qeqwertyu");
+//			while (rs.next()) {
+//				// System.out.println(rs.getInt(1));
+//				SchemeBean b = new SchemeBean();
+//				b.setId(rs.getInt(1));
+//				b.setName(rs.getString(2));
+//				b.setSchemeType(rs.getString(3));
+//				b.setMonthsPaid(rs.getString(4));
+//				b.setMonthsPending(rs.getString(5));
+//				b.setStatus(rs.getString(6));
+//				b.setPassword(rs.getString(7));
+//				rows.add(b);
+//				// System.out.println(b.status + "%%%%%%%");
+//			}
+//
+//			connection.close();
+//		} catch (SQLException e) {
+//			System.out.println("sql exception in retrive");
+//			e.printStackTrace();
+//		}
+//		return rows;
+//	}
 
 //	public static void main(String[] args) {
 //
@@ -230,50 +227,101 @@ public class DBCRUDOperations {
 				return true;
 			}
 		} catch (SQLException e) {
-// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 
 	}
-	
 
-	public static List<SchemeBean> getSchemeTable() {
-		Connection connection = DBConnection.getDBConnection();
+	public static List<SchemeBean> getSchemeTableA() {
 		List<SchemeBean> rows = new ArrayList<SchemeBean>();
-	java.sql.Statement st = null;
-	    try
-	    {
-	    	   Connection conn= DBConnection.getDBConnection();
-	    	   st=conn.createStatement(); 
+		try {
+			Statement stmt;
+			Connection connection = DBConnection.getDBConnection();
+		
+			stmt =connection.createStatement();
+			String query = "SELECT * FROM the_smart_chits.scheme_a";
 
-	      String query = "SELECT * FROM the_smart_chits.scheme_a";
-	   
-	    
-	      ResultSet rs = st.executeQuery(query);
-	      
-	      while (rs.next())
-	      {
-	        int id = rs.getInt("CustomerId");
-	        String Name = rs.getString("CustomerName");
-	        String Scheme = rs.getString("SchemeType");
-	        String paid = rs.getString("monthsPaid");
-	        String pending = rs.getString("monthsPending");
-	        String status = rs.getString("Status");
-	        String password=rs.getString("password");
-	        
-	        // print the results
-	        System.out.format("%s, %s, %s, %s, %s, %s\n", id, Name, Scheme, paid, pending, status,password);
-	      }
-	      st.close();
-	    }
-	    catch (Exception e)
-	    {
-	      System.err.println("Got an exception! ");
-	      System.err.println(e.getMessage());
-	    }
+			ResultSet rs = stmt.executeQuery(query);
+
+			while (rs.next()) {
+				SchemeBean sb = new SchemeBean();
+				sb.setId(rs.getInt(1));
+				sb.setName(rs.getString(2));
+				sb.setSchemeType(rs.getString(3));
+				sb.setMonthsPaid(rs.getString(4));
+				sb.setMonthsPending(rs.getString(5));
+				sb.setStatus(rs.getString(6));
+				sb.setPassword(rs.getString(7));
+				rows.add(sb);
+				System.out.println(sb);
+			}
+			stmt.close();
+		} catch (Exception e) {
+			System.err.println("Got an exception! ");
+			System.err.println(e.getMessage());
+		}
 		return rows;
-	  }
 	}
+	
+	public static List<SchemeBean> getSchemeTableB() {
+		List<SchemeBean> rows = new ArrayList<SchemeBean>();
+		try {
+			Statement stmt;
+			Connection connection = DBConnection.getDBConnection();
+		
+			stmt =connection.createStatement();
+			String query = "SELECT * FROM the_smart_chits.scheme_b";
 
+			ResultSet rs = stmt.executeQuery(query);
 
+			while (rs.next()) {
+				SchemeBean sb = new SchemeBean();
+				sb.setId(rs.getInt(1));
+				sb.setName(rs.getString(2));
+				sb.setSchemeType(rs.getString(3));
+				sb.setMonthsPaid(rs.getString(4));
+				sb.setMonthsPending(rs.getString(5));
+				sb.setStatus(rs.getString(6));
+				sb.setPassword(rs.getString(7));
+				rows.add(sb);
+				System.out.println(sb);
+			}
+			stmt.close();
+		} catch (Exception e) {
+			System.err.println("Got an exception! ");
+			System.err.println(e.getMessage());
+		}
+		return rows;
+	}
+	public static List<SchemeBean> getSchemeTableC() {
+		List<SchemeBean> rows = new ArrayList<SchemeBean>();
+		try {
+			Statement stmt;
+			Connection connection = DBConnection.getDBConnection();
+		
+			stmt =connection.createStatement();
+			String query = "SELECT * FROM the_smart_chits.scheme_c";
+
+			ResultSet rs = stmt.executeQuery(query);
+
+			while (rs.next()) {
+				SchemeBean sb = new SchemeBean();
+				sb.setId(rs.getInt(1));
+				sb.setName(rs.getString(2));
+				sb.setSchemeType(rs.getString(3));
+				sb.setMonthsPaid(rs.getString(4));
+				sb.setMonthsPending(rs.getString(5));
+				sb.setStatus(rs.getString(6));
+				sb.setPassword(rs.getString(7));
+				rows.add(sb);
+				System.out.println(sb);
+			}
+			stmt.close();
+		} catch (Exception e) {
+			System.err.println("Got an exception! ");
+			System.err.println(e.getMessage());
+		}
+		return rows;
+	}
+}

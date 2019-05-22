@@ -2,6 +2,7 @@ package com.regnant.organiser;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +54,9 @@ public class CustomerDetailsS extends HttpServlet {
 		c.setmailID(customerMailId);
 		c.setAddress(customerAddress);
 		c.setSchemeType(customerSchemeType);
-
+		ServletContext sc= getServletContext();
+		sc.setAttribute("mail", customerMailId);
+		//request.setAttribute("mail", customerMailId);
 		int noOFCustomers = DBCRUDOperations.insertCustomers(c);
 		System.out.println("number of customers added : " + noOFCustomers);
 		if (noOFCustomers == 1) {

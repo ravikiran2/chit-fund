@@ -64,7 +64,7 @@ body{background-color: #D4D6D7}
 </tr>
 <%
 //List<SchemeBean> li = DBCRUDOperations.getSchemeTable();
- List<SchemeBean> sl = (List<SchemeBean>) request.getAttribute("SchemeA"); 
+ List<SchemeBean> sl = (List<SchemeBean>) request.getAttribute("SchemeC"); 
 for (SchemeBean s : sl) {
 %>
 <tr>

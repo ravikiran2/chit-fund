@@ -2,6 +2,7 @@ package com.regnant.organiser;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,7 +51,16 @@ public class AddSchemeAServlet extends HttpServlet {
 		DBCRUDOperations dbop = new DBCRUDOperations();
 		int row_count = dbop.AddSchemeA(u);
 		System.out.println(row_count + "is inserted");
-		request.getRequestDispatcher("success.html").forward(request, response);
+		if (row_count == 1) {
+
+			ServletContext sc = getServletContext();
+			String mail = (String) sc.getAttribute("mail");
+
+			SendMail sm = new SendMail(mail);
+			sm.setname(name);
+			sm.Mailsend1();
+			request.getRequestDispatcher("success.html").forward(request, response);
+		}
 
 	}
 

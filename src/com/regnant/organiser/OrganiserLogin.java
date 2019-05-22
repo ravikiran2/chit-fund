@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.regnant.admin.OrganiserBean;
 
@@ -37,6 +38,9 @@ public class OrganiserLogin extends HttpServlet {
 		String organiserid = request.getParameter("organiserid");
 		String organiserpassword = request.getParameter("organiserpassword");
 		String organiserscheme = request.getParameter("organiserScheme");
+		HttpSession ht= request.getSession();
+		ht.setAttribute("id", organiserid);
+		ht.setAttribute("Scheme", organiserscheme);
 		OrganiserBean o = new OrganiserBean();
 		o.setId(Integer.parseInt(organiserid));
 		o.setPassword(organiserpassword);
