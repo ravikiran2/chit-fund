@@ -18,8 +18,8 @@
 
 
 <style>
-th{border:1px solid black;color:#E67E22;border-radius:5;background-color:white;font-size: 20px;font-family:Consolas;padding: 20px;spacing:2px}
-td{border:1px solid black;border-radius:5; color:black; font-size:20px;text-align:center;font-family:Consolas;padding: 20px}
+th{border:2px solid #034A70;color:#E67E22;background-color:white;font-size: 20px;font-family:Consolas;padding: 20px;spacing:2px}
+td{border:2px solid #034A70; color:#034A70; font-size:20px;text-align:center;font-family:Consolas;padding: 20px}
 tr{background-color:#ECECEC;}
 table{margin-left:150px;}
 body{background-color: #D4D6D7}
@@ -46,7 +46,7 @@ body{background-color: #D4D6D7}
  color:#E67E22;font-weight:bold; width:80px; border-radius: 20px;height"
 			type="submit" value="logout"></form>
  
-<h2 style="margin-left:680px">Your Status</h2>
+<h2 style="text-align: center;color: #034A70">SCHEME-A USERS</h2>
 <br><br>
 
 <table cellspacing="10">
@@ -58,7 +58,7 @@ body{background-color: #D4D6D7}
 <th ><b>&nbsp Months to be paid &nbsp</b></th>
 <th ><b>&nbsp Months pending &nbsp</b></th>
 <th ><b>&nbsp Status &nbsp</b></th>
-<th ><b>&nbsp password &nbsp</b></th>
+<th><b>&nbsp password &nbsp</b></th>
 
 
 </tr>

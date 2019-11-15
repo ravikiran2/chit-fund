@@ -40,6 +40,7 @@ body{background-color: #D4D6D7}
         </ul>
   </div>
 </nav>
+
  
 <h2 style="margin-left:680px">Your Status</h2>
 <br><br>
